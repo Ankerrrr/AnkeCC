@@ -123,6 +123,9 @@ char* status(int n) {
     case 9:
         strcpy(statusarr, "¤ý¨£¤ý!");
         break;
+    case 10:
+        strcpy(statusarr, "¦Û¤v²¾¨ì¦Û¤v?³o¼Ë¦³¬Æ»ò·N¸q");
+        break;
     case 100:
         strcpy(statusarr, "¨t²Î¬G»Ù¡A½ÐÁpÃ´ANKE");
         break;
@@ -229,7 +232,6 @@ void printBoard() {
 
 int rulecar(int first, int second, int col1, int row1, int col2, int row2) {  //¨®
     if (col1 == col2) {
-        printf("%d %d %d %d %d %d", first, second, col1, row1, col2, row1);//´ú¸Õ
         int obstacle = 0;
         int min = row1 > row2 ? row2 : row1;
         int max = row1 < row2 ? row2 : row1;
@@ -284,6 +286,21 @@ int rulexian(int first, int second, int col1, int row1, int col2, int row2) { //
 }
 
 int rulefour(int first, int second, int col1, int row1, int col2, int row2) { //¤h
+    printf("%d %d %d %d %d %d", first, second, col1, row1, col2, row2);//´ú¸Õ
+
+    if (row2 >= 3 && row2 <= 5 && ((first == 4 && col2 <= 2 && col2 >= 0) || (first == 11 && col2 <= 9 && col2 >= 7))) { // ¦b½d³ò¤º
+        printf("!!!!");
+        if ((col2 == col1 + 1 && row2 == row1 - 1) || (col2 == col1 - 1 && row2 == row1 + 1) || (col2 == col1 - 1 && row2 == row1 - 1) || (col2 == col1 ¡Ï 1 && row2 == row1 + 1)) {
+            cheese[col2][row2] = first;//·h²¾
+            cheese[col1][row1] = 0;
+            if (second != 0) {
+                status(5);//¦Y±¼¤F
+            }
+        }
+    }
+    else {
+        status(4);//¤£¦X³W«h
+    }
     return 0;
 }
 
@@ -365,6 +382,10 @@ int rulepow(int first, int second, int col1, int row1, int col2, int row2) { //¬
 
 int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {   //¤À°t¦U¦ÛºX¤lªº³W«h
     if (((first < 8 && second < 8) || (first > 7 && second > 7)) && (second != 0 && first != 0)) { //¦Y¦Û¤v
+        if (first == second) {//¦Û¤v²¾¨ì¦Û¤v
+            status(10);
+            return(1);
+        }
         status(6);
         return(1);
     }
