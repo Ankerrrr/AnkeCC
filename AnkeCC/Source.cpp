@@ -228,75 +228,50 @@ void printBoard() {
 }
 
 int rulecar(int first, int second, int col1, int row1, int col2, int row2) {  //車
-    if ((player == 1 && first == 1) || (player == 2 && first == 8)) { 
-        if (col1 == col2) {  //移動的是合理的 橫向移動
-            for (int i = col1; i < col2; i++) {//檢查移動過程有無碰撞
-                if (cheese[row1][i] != 0) { //如果有碰撞
-                    status(4); //狀態 移動不合理
-                    return 1;
-                }
+    if (col1 == col2) {
+        printf("%d %d %d %d %d %d", first, second, col1, row1, col2, row1);//測試
+        int obstacle = 0;
+        int min = row1 > row2 ? row2 : row1;
+        int max = row1 < row2 ? row2 : row1;
+        for (int i = min + 1; i < max; i++) {
+            if (cheese[col1][i] != 0) {
+                obstacle = 1;
             }
-            if (second != 0) {//移動到的地方有東西
-                if (player == 1) {//1p移動
-                    if (second >= 8) {
-                        status(5);//阿姆
-                    }
-                    else {
-                        //status(6);//住手 你在吃自己
-                        return 1;
-                    }
-                }
-                else {//2p移動
-                    if (second <= 7) {
-                        status(5);//哎呀被吃掉了
-                    }
-                    else {
-                        status(6);//住手 你在吃自己
-                        return 1;
-                    }
-                }
-            }
-            cheese[col2][row2] = first;//搬移
-            cheese[col1][row1] = 0;
-            status(999);
         }
-        else if (row1 == row2) {//移動的是合理的 直向移動
-            for (int i = row1; i < row2; i++) {//檢查移動過程有無碰撞
-                if (cheese[i][col1] != 0) { //如果有碰撞
-                    status(4); //狀態 移動不合理
-                    return 1;
-                }
-            }
-            if (second != 0) {//移動到的地方有東西
-                if (player == 1) {//1p移動
-                    if (second >= 8) {
-                        status(5);//哎呀被吃掉了
-                    }
-                    else {
-                        //status(6);//住手 你在吃自己
-                        return 1;
-                    }
-                }
-                else {//2p移動
-                    if (second <= 7) {
-                        status(5);//哎呀被吃掉了
-                    }
-                    else {
-                        //status(6);//住手 你在吃自己
-                        return 1;
-                    }
-                }
-            }
-            cheese[col2][row2] = first;//搬移
+        if (!obstacle) { //沒有碰撞
+            cheese[col2][row2] = first;
             cheese[col1][row1] = 0;
-            status(999);
+            if (second != 0) {
+                status(5);//吃掉了
+            }
+        }
+        else {
+            status(4);
+        }
+    }
+    else if (row1 == row2) {
+        int obstacle = 0;
+        int min = col1 > col2 ? col2 : col1;
+        int max = col1 < col2 ? col2 : col1;
+        for (int i = min + 1; i < max; i++) {
+            if (cheese[i][row1] != 0) {
+                obstacle = 1;
+            }
+        }
+
+        if (!obstacle) {
+            cheese[col2][row2] = first;
+            cheese[col1][row1] = 0;
+            status(5);//吃掉了
+        }
+        else {
+            status(4);
         }
     }
     else {
-        if (first == 1 || first == 8) {
-            status(7);//亂動別人的旗子
-        }
+        status(4);
     }
+
     return 0;
 }
 
@@ -444,6 +419,7 @@ int inputandselect() {
     
     scanf("%s", commnd);
     commnd[0] = toupper(commnd[0]);
+    //printf("in select1");
     if (commnd[0] >= 'A' && commnd[0] <= 'I' && commnd[1] >= '0' && commnd[1] <= '9' && commnd[2] <= 0) {//第一指令
         row1 = commnd[0] - 65;
         col1 = commnd[1] - 48;
@@ -461,12 +437,14 @@ int inputandselect() {
         printf("錯誤");
         return 1;
     }
+    //printf("in select2");
+
 
     int row2, col2;
-    if (row1 == NULL && col1 == NULL) {
+    /*if (row1 == NULL && col1 == NULL) {
         status(3);
         return 0;
-    }
+    }*/
     printf("你要移動 %s 到哪裡", cheeseboard(col1, row1));
     scanf("%s", commnd);
     commnd[0] = toupper(commnd[0]);
@@ -493,7 +471,7 @@ int main() {
     while (1) {
         printBoard();
         inputandselect();
-        clr();
+        //clr();
     }
     system("pause");
 }
