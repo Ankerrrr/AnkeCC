@@ -15,8 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="1main.c">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="2sub_cheeseRule.c">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="3def_global.c">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="head.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
