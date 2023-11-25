@@ -16,7 +16,8 @@ int eated1[20] = { 0 };
 int eated2[20] = { 0 };
 int player = 1;
 int round = 1;
+short win = 0;
+
 char commnd1[10];
 char commnd2[10];
 char statusarr[30];
-short win = 0;

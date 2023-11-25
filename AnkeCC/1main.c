@@ -15,6 +15,10 @@ int init() {
     return 0;
 }
 
+void setColor(int n) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), n);
+}
+
 char* cheesename(int nub) {
     static char name[20];
     switch (nub) {
@@ -45,7 +49,7 @@ char* cheesename(int nub) {
         break;
         //2p
     case 8:
-        strcpy(name, "狙");
+        strcpy(name, "拘");
         break;
     case 9:
         strcpy(name, "傌");
@@ -122,63 +126,54 @@ void status(int n) {
     }
 }
 
-int roundstatus() {
-    if (player == 1) {
-        player = 2;
-    }
-    else {
-        player = 1;
-    }
-    return 0;
-}
-
 void printBoard() {
-    printf("狀態:第%d局 輪到%dP \n     %s\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", round, player, statusarr);
+    printf("狀態:第%d步 輪到%dP \n     %s\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", round, player, statusarr);
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
             if (i != 5) {
                 if (i > 5) {
-                    if (i == 6) {
-                        printf("%s~~~~", cheeseboard(i - 1, j));
-                    }
-                    else {
-                        printf("%s----", cheeseboard(i - 1, j));
-                    }
+                    setColor(cheese[i - 1][j] > 7 ? twoPlayerColor : onePlayerColor);
+                    printf("%s", cheeseboard(i - 1, j));  
+                    setColor(otherBoardTextColor);
+                    printf("~~~~");
+
                 }
                 else {
-                    if (i == 4) {
-                        printf("%s~~~~", cheeseboard(i, j));
-                    }
-                    else {
-                        printf("%s----", cheeseboard(i, j));
-                    }
+                    setColor(cheese[i][j] > 7 ? twoPlayerColor : onePlayerColor);
+                    printf("%s", cheeseboard(i, j));
+                    setColor(otherBoardTextColor);
+                    printf("~~~~");
                 }
             }
         }
         if (i != 5) {
             if (i > 5) {
+                setColor(cheese[i - 1][8] > 7 ? twoPlayerColor : onePlayerColor);
                 printf("%s", cheeseboard(i - 1, 8));
+                setColor(poisColor);
                 printf(" #%d", i - 1);
-                
-                if (i == 6) {
-                    printf("          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                }
-                if (i == 8) {
+                setColor(otherBoardTextColor);
+                if (i == 6 || i == 8) {
                     printf("          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 }
                 if (i == 9) {
                     printf("            ");
+                    setColor(onePlayerColor);
                     for (int n = 0; n < 18; n++) {
                         printf("%s ", cheesename(eated1[n]));
                     }
+                    setColor(otherBoardTextColor);
                 }
                 
                 printf("\n");
             }
             else if (i < 4) {
+                setColor(cheese[i][8] > 7 ? twoPlayerColor : onePlayerColor);
                 printf("%s", cheeseboard(i, 8));
+                setColor(poisColor);
                 printf(" #%d", i);
-                if (i == 0) {
+                setColor(textColor);
+                if (i == 0) { 
                     printf("         遊戲玩法:");
                 }
                 if (i == 1) {
@@ -187,18 +182,24 @@ void printBoard() {
                 if (i == 2) {
                     printf("          上面為1P,下面為2P,輸入座標來移動旗子");
                 }
+                setColor(otherBoardTextColor);
                 printf("\n");
             }
             else if (i == 4) {
-                printf("%s #%d\n         漢界         ", cheeseboard(4, 8), i);
+                setColor(cheese[4][8] > 7 ? twoPlayerColor : onePlayerColor);
+                printf("%s", cheeseboard(4, 8));
+                setColor(poisColor);
+                printf(" #%d\n",i);
+                setColor(otherBoardTextColor);
+                setColor(poisColor);
+                setColor(riverColor);
+                printf("         漢界         ");
             }
 
         }
         if (i == 5) {
-            for (int k = 0; k < 1; k++) {
-                printf("                                       楚河         ");
-            }
-            printf("");
+            setColor(riverColor);
+            printf("                                       楚河          ");
         }
         for (int k = 0; k < 9; k++) {
             if (i == 4 || i == 5) {
@@ -209,38 +210,53 @@ void printBoard() {
             }
         }
         if (i == 6) {
+            setColor(textColor);
             printf("         1P:");
             for (int n = 1; n < 8; n++) {
                 printf("%s, ", cheesename(n));
             }
+            setColor(otherBoardTextColor);
+
         }
         if (i == 7) {
+            setColor(textColor);
             printf("         2P:");
             for (int n = 8; n < 15; n++) {
                 printf("%s, ", cheesename(n));
             }
+            setColor(otherBoardTextColor);
         }
+        setColor(textColor);
         if(i == 8) {
             printf("         1P已被吃掉的棋子:");
         }
         if (i == 9) {
             printf("         2P已被吃掉的棋子:");
         }
+        setColor(otherBoardTextColor);
         printf("\n");
     }
     for (int j = 0; j < 8; j++) {
-        printf("%s----", cheeseboard(9, j));
+        setColor(cheese[9][j] > 7 ? twoPlayerColor : onePlayerColor);
+        printf("%s----", cheeseboard(9, j)); 
+        setColor(otherBoardTextColor);
+
     }
+    setColor(cheese[9][8] > 7 ? twoPlayerColor : onePlayerColor);
     printf("%s", cheeseboard(9, 8));
+    setColor(poisColor);
     printf(" #%d", 9);
     printf("            ");
-    for (int n = 0; n < 20; n++) {
+    setColor(twoPlayerColor);
+    for (int n = 0; n < 17; n++) {
         printf("%s ", cheesename(eated2[n]));
     }
+    setColor(poisColor);
     printf("\n#A    #B    #C    #D    #E    #F    #G    #H    #I \n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+    setColor(textColor);
     printf("\n");
+    
 }
 
 int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {  
@@ -364,7 +380,7 @@ int inputandselect() {
                 status(999);
             }
             if (second == 5 || second == 12) {
-                win = 1; //win
+                //win = 1; //win
             }
         }
         rewind(stdin);
@@ -378,22 +394,21 @@ int inputandselect() {
 }
 
 void winfunc() {
-    for (int i = 0; i < 10; i++) {
-    }
+
 }
 
 int main() {
     init();
     status(999);
-    //while (!win) {
-    //    printboard();
-    //    inputandselect();
-    //    clr();
-    //}
-    //if (win) {
-    //    clr();
-    //    winfunc();
-    //}
-    winfunc();
+    while (1) {
+        printBoard();
+        inputandselect();
+        //clr();
+    }
+    if (win) {
+        clr();
+        winfunc();
+    }
     system("pause");
+    return 0;
 }
