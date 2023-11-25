@@ -143,14 +143,7 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
             status(4);//不合理
             return 1;
         }
-    }
-    else {
-        status(4);//不合理
-        return 1;
-    }
-    printf("%d %d", first, second);
-    //王見王
-    if (second == 5 || second == 12) {//吃掉將
+    }else if (second == 5 || second == 12) {//王見王//吃掉將
         int obstacle = 0;
         if (row1 == row2) { // 在同一行上
             int min_col = (col1 < col2) ? col1 : col2;
@@ -168,10 +161,15 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
             cheese[col2][row2] = first;//搬移
             cheese[col1][row1] = 0;
             status(9); // 王見王！
-            return 0;
+        } else {
+            status(4);//不合理
+            return 1;
         }
+    }else {
+        status(4);//不合理
+        return 1;
     }
-
+    return 0;
 }
 
 //|col -row

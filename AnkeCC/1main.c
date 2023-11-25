@@ -1,6 +1,7 @@
 #include "head.h"
 #include "global.h"
 
+
 int clr() {
     printf("\x1b[H\x1b[J"); //clear display
     return 0;
@@ -238,9 +239,9 @@ void printBoard() {
     }
     for (int j = 0; j < 8; j++) {
         setColor(cheese[9][j] > 7 ? twoPlayerColor : onePlayerColor);
-        printf("%s----", cheeseboard(9, j)); 
+        printf("%s", cheeseboard(9, j)); 
         setColor(otherBoardTextColor);
-
+        printf("----");
     }
     setColor(cheese[9][8] > 7 ? twoPlayerColor : onePlayerColor);
     printf("%s", cheeseboard(9, 8));
@@ -380,7 +381,7 @@ int inputandselect() {
                 status(999);
             }
             if (second == 5 || second == 12) {
-                //win = 1; //win
+                win = 1; //win
             }
         }
         rewind(stdin);
@@ -394,16 +395,16 @@ int inputandselect() {
 }
 
 void winfunc() {
-
+    clr();
 }
 
 int main() {
     init();
     status(999);
-    while (1) {
+    while (!win) {
         printBoard();
         inputandselect();
-        //clr();
+        clr();
     }
     if (win) {
         clr();

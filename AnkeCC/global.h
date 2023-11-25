@@ -27,4 +27,6 @@ extern ruleking(int, int, int, int, int, int);
 extern rulebin(int, int, int, int, int, int);
 extern rulepow(int, int, int, int, int, int);
 
+
+
 #endif

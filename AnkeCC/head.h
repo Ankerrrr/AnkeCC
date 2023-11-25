@@ -4,3 +4,5 @@
 #include <string.h>
 #include <ctype.h>
 #include <windows.h>
+#include <Mmsystem.h>
+#pragma comment(lib,"winmm.lib")
