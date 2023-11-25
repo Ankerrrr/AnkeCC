@@ -2,7 +2,7 @@
 #include "global.h"
 
 int rulecar(int first, int second, int col1, int row1, int col2, int row2) {  //車
-    if (col1 == col2) {
+    if (col1 == col2 ) {
         int obstacle = 0;
         int min = row1 > row2 ? row2 : row1;
         int max = row1 < row2 ? row2 : row1;
@@ -20,6 +20,7 @@ int rulecar(int first, int second, int col1, int row1, int col2, int row2) {  //
         }
         else {
             status(4);
+            return 1;
         }
     }
     else if (row1 == row2) {
@@ -41,10 +42,12 @@ int rulecar(int first, int second, int col1, int row1, int col2, int row2) {  //
         }
         else {
             status(4);
+            return 1;
         }
     }
     else {
         status(4);
+        return 1;
     }
 
     return 0;
@@ -71,6 +74,7 @@ int rulehorse(int first, int second, int col1, int row1, int col2, int row2) {//
     }
     else {
         status(4);//不合規則
+        return 1;
     }
     return 0;
 }
@@ -92,10 +96,12 @@ int rulexian(int first, int second, int col1, int row1, int col2, int row2) { //
         }
         else {
             status(4);//不合規則
+            return 1;
         }
     }
     else {
         status(4);//不合規則
+        return 1;
     }
     return 0;
 }
@@ -113,10 +119,12 @@ int rulefour(int first, int second, int col1, int row1, int col2, int row2) { //
         }
         else {
             status(4);//不合規則
+            return 1;
         }
     }
     else {
         status(4);//不合規則
+        return 1;
     }
     return 0;
 }
@@ -133,10 +141,12 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
         }
         else {
             status(4);//不合理
+            return 1;
         }
     }
     else {
         status(4);//不合理
+        return 1;
     }
     printf("%d %d", first, second);
     //王見王
