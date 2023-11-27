@@ -74,6 +74,7 @@
 <p>玩家輪流行動，被吃掉將就輸了</p>
 <h2>程式結構圖</h2>
 <h2>程式流程圖</h2>
+<img width=600rem src="https://github.com/Ankerrrr/AnkeCC/blob/master/AnkeCC/Untitled%20Diagram.svg">
 <h2>使用說明</h2>
 <h2>心得</h2>
 
