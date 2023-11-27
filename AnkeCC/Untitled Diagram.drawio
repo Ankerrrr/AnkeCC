@@ -1,60 +1,60 @@
-<mxfile host="app.diagrams.net" modified="2023-11-27T15:01:51.253Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="imQYwXA6sEn-XWGh3mNj" version="22.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-27T15:05:58.148Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="B2gGTqqmBZTrODFaFXW_" version="22.1.4" type="github">
   <diagram name="Page-1" id="syb87-QGkI7_0BNL9Wj-">
     <mxGraphModel dx="1793" dy="968" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1390" pageHeight="980" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="425" y="120" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;初始化&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;初始化&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="365" y="30" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-8" target="gtlvYnjf_naC1f6O9EZB-9">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-8" target="gtlvYnjf_naC1f6O9EZB-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-8" value="檢查是否勝利" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-8" value="檢查是否勝利" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="285" y="120" width="280" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-9" target="gtlvYnjf_naC1f6O9EZB-11">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-9" target="gtlvYnjf_naC1f6O9EZB-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-9" value="繪製棋盤" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-9" value="繪製棋盤" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="365" y="300" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-11" target="gtlvYnjf_naC1f6O9EZB-14">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-11" target="gtlvYnjf_naC1f6O9EZB-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-11" value="使用者輸入座標" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-11" value="使用者輸入座標" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="365" y="390" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-14" target="gtlvYnjf_naC1f6O9EZB-11">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-14" target="gtlvYnjf_naC1f6O9EZB-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-14" target="gtlvYnjf_naC1f6O9EZB-22">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-14" target="gtlvYnjf_naC1f6O9EZB-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-14" value="檢查輸入合理性" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-14" value="檢查輸入合理性" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="285" y="480" width="280" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-22" target="gtlvYnjf_naC1f6O9EZB-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-22" value="分類至個別棋子" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-22" value="分類至各別棋子" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="285" y="640" width="280" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-26">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-26" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="360" y="420" as="targetPoint" />
             <Array as="points">
@@ -63,13 +63,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-26" target="gtlvYnjf_naC1f6O9EZB-33">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-26" target="gtlvYnjf_naC1f6O9EZB-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-26" value="檢查是否符合象棋規則" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-26" value="檢查是否符合象棋規則" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="285" y="820" width="280" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=20;" edge="1" parent="1" source="gtlvYnjf_naC1f6O9EZB-33" target="gtlvYnjf_naC1f6O9EZB-8">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=20;" parent="1" source="gtlvYnjf_naC1f6O9EZB-33" target="gtlvYnjf_naC1f6O9EZB-8" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="425" y="1070" />
@@ -78,7 +78,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="gtlvYnjf_naC1f6O9EZB-33" value="搬移棋子" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+        <mxCell id="gtlvYnjf_naC1f6O9EZB-33" value="搬移棋子" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="365" y="990" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
