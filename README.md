@@ -12,8 +12,6 @@
   <thead>
     <tr>
       <th>圖案</th>
-      <th>黑方</th>
-      <th>紅方</th>
       <th>棋子數</th>
       <th>活動範圍</th>
       <th>走法</th>
@@ -23,62 +21,48 @@
   <tbody>
     <tr>
       <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>帥</td>
-      <td>將</td>
       <td>1</td>
       <td>九宮格內</td>
       <td>前後左右各走一步</td>
       <td>主要棋子</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src=""></td>
-      <td>仕</td>
-      <td>士</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Xiangqi_ad1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Xiangqi_al1.svg"></td>
       <td>2</td>
       <td>九宮格內</td>
       <td>對角線各走一步</td>
       <td>保護帥/將</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Xiangqi_ad1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>象</td>
-      <td>象</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Xiangqi_ed1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/7/77/Xiangqi_el1.svg"></td>
       <td>2</td>
       <td>自家內</td>
       <td>田字/td>
       <td>不能過河，不得拐相腳</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>傌</td>
-      <td>馬</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Xiangqi_hd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/0/04/Xiangqi_hl1.svg"></td>
       <td>2</td>
       <td>走日字</td>
       <td>日字形走法</td>
       <td>不得拐馬腳</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>俥</td>
-      <td>車</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Xiangqi_rd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Xiangqi_rl1.svg"></td>
       <td>2</td>
       <td>直線橫豎</td>
       <td>直線走法</td>
       <td>最大行動範圍</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>炮</td>
-      <td>砲</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/4/43/Xiangqi_cd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Xiangqi_cl1.svg"></td>
       <td>2</td>
       <td>直線橫豎</td>
       <td>跳躍1子後隔一子吃子</td>
       <td>可隔子吃子</td>
     </tr>
     <tr>
-      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/6/69/Xiangqi_gd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/5/50/Xiangqi_gl1.svg"></td>
-      <td>兵</td>
-      <td>卒</td>
+      <td><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/0/03/Xiangqi_sd1.svg"><img width=60px height= 60px src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Xiangqi_sl1.svg"></td>
       <td>5</td>
       <td>前進1步，過河後可左右移動</td>
       <td>過河後能左右移動</td>
@@ -87,5 +71,5 @@
   </tbody>
 </table>
 </tablet>
-<h3>玩家輪流行動，被吃掉將就輸了</h3>
+<p>玩家輪流行動，被吃掉將就輸了</p>
 <h2></h2>
