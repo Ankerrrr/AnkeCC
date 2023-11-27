@@ -73,10 +73,46 @@
 </tablet>
 <p>玩家輪流行動，被吃掉將就輸了</p>
 <h2>程式結構圖</h2>
+<h3>各個函式</h3>
+<p>main.c</p>
+<ul>
+  <li>clr<br>負責清除畫面，並在main中會被重複呼叫 ，搭配 inputansselect</li> 
+  <li>init<br>初始化象棋棋盤</li>
+  <li>setColor<br>使用windows.h的函式庫，改變棋盤的顏色</li>
+  <li>cheesename<br>負責將cheesename陣列的數字內容轉換為各個象棋的名字</li>
+  <li>cheeseboard<br>負責將row 和 col 轉換為陣列的棋盤內容，並在送出給cheesename最後return該棋的中文字</li>
+  <li>status<br>依照函式引入內容修改棋盤上方的狀態列表訊息</li>
+  <li>printBoard<br>使用各種符號，繪出棋盤，且會在main中重複執行，搭配clr達到不斷更新的畫面</li>
+  <li>ruleTotal<br>分配各個旗子的規則至各字的函示 例如 rulebin(兵)、rulepow(炮)等等</li>
+  <li>inputandselect<br>偵測使用的的輸入座標，檢查其座標位置合理性，確認無誤則轉由ruleTotal，有錯則重新輸入</li>
+  <li>winfunc<br>勝利畫面 print 出獲勝玩家 </li>
+  <li>main <br>負責程式的主要流程，且在printBoard、inputandselect、clr之間重複執行至獲勝</li>
+</ul>
+<p>cheeseRule.c</p>
+<ul>
+  <li>rulecar<br>負責車的邏輯，只能直走、不能飛過東西</li> 
+  <li>rulehorse<br>負責法的邏輯，只能日字行走，不得拐馬腳</li>
+  <li>rulexian<br>負責相的邏輯，只能田字行走，不得柺相腳及過河</li>
+  <li>rulefour<br>負責士的邏輯，只能斜著走，且必須位於九宮格內</li>
+  <li>ruleking<br>負責王的邏輯，只能在九宮格內，且王見王可飛過去吃</li>
+  <li>rulebin<br>負責兵的邏輯，只能走一步，在自家只能直線走，過河後可橫豎走</li>
+  <li>rulepow<br>負責炮的邏輯，只以橫豎走，且可吃掉隔一個棋的敵方棋</li>
+</ul>
 <h2>程式流程圖</h2>
 <img width=600rem src="https://github.com/Ankerrrr/AnkeCC/blob/master/AnkeCC/Untitled%20Diagram.svg">
 <h2>使用說明</h2>
-<h2>心得</h2>
+<p>▼ 輸入要移動的座標 及 移動到哪裡 即可搬移棋子</p>
+<img src="https://github.com/Ankerrrr/AnkeCC/assets/80147818/3c1af165-1d7b-4198-8117-5845414d0162">
+<p>▼ 成功搬移棋子</p>
+<img src="https://github.com/Ankerrrr/AnkeCC/assets/80147818/d8cee186-45e6-43f4-817d-f5050066905f">
+<p>▼ 如果不符合象棋規則則會提示錯誤</p>
+<img src="https://github.com/Ankerrrr/AnkeCC/assets/80147818/0c92117c-8bed-4f57-bebe-0117fa4c0772">
+<h2>心得反思</h2>
+<p>為了做一個真的能夠玩的遊戲，這個中國象棋真的花了我非常多時間及精力，程式的內容幾乎都是自己寫的，少部分是在遇到問題時解決不出來時會尋求CHATGPT的幫助，<br>
+  這個程式的架構說大不大但說小也不小，我覺得當初在一開始在設計架構時並沒有想清楚，導致一些函式有過多的工作內容或是變數有些設的有些多餘，在未來撰寫比較大的專案時必須要先規畫清楚，<br>
+  最後就是成品看起來還行，但是每次玩都會發現一些BUG，發現一次改一次，在未來自己應該還是會時不時開這個來玩，如果有發現BUG仍然會去修改，如果有發現BUG也歡迎使用issues 頁面反映，謝謝👍</p>
+<h2>開發時間</h2>
+
 
 
 
