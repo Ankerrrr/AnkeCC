@@ -467,5 +467,6 @@ int main() {
     if (win) {
         winfunc();
     }
+    system("pause");
     return 0;
 }
