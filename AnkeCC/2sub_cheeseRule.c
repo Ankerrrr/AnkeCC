@@ -143,7 +143,7 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
             status(4);//¤£¦X²z
             return 1;
         }
-    }else if (second == 5 || second == 12) {//¤ý¨£¤ý//¦Y±¼±N
+    } else if (second == 5 || second == 12 && (row1 == row2 || col1 == col2)) {//¤ý¨£¤ý//¦Y±¼±N
         int obstacle = 0;
         if (row1 == row2) { // ¦b¦P¤@¦æ¤W
             int min_col = (col1 < col2) ? col1 : col2;
@@ -225,6 +225,9 @@ int rulepow(int first, int second, int col1, int row1, int col2, int row2) { //¬
                 if (second != 0) {
                     status(5);//¦Y¨ìªF¦è¤F
                 }
+            } else {
+                status(4);//²¾°Ê¤£¦X²z
+                return(1);
             }
         }
         else if (row1 == row2) {
@@ -248,6 +251,9 @@ int rulepow(int first, int second, int col1, int row1, int col2, int row2) { //¬
                 if (second != 0) {
                     status(5);//¦Y¨ìªF¦è¤F
                 }
+            } else {
+                status(4);//²¾°Ê¤£¦X²z
+                return(1);
             }
         }
         else {

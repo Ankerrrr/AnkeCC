@@ -128,7 +128,16 @@ void status(int n) {
 }
 
 void printBoard() {
-    printf("狀態:第%d步 輪到%dP \n     %s\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", round, player, statusarr);
+    printf("狀態:", round, player);
+    setColor(highlightColor);
+    printf("第%d步", round);
+    setColor(textColor);
+    printf(",輪到 ");
+    setColor(highlightColor);
+    printf("%dP \n", player);
+    setColor(textColor);
+    printf("狀態 %s", statusarr);
+    printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
             if (i != 5) {
@@ -136,14 +145,14 @@ void printBoard() {
                     setColor(cheese[i - 1][j] > 7 ? twoPlayerColor : onePlayerColor);
                     printf("%s", cheeseboard(i - 1, j));  
                     setColor(otherBoardTextColor);
-                    printf("~~~~");
+                    printf("----");
 
                 }
                 else {
                     setColor(cheese[i][j] > 7 ? twoPlayerColor : onePlayerColor);
                     printf("%s", cheeseboard(i, j));
                     setColor(otherBoardTextColor);
-                    printf("~~~~");
+                    printf("----");
                 }
             }
         }
@@ -191,16 +200,38 @@ void printBoard() {
                 printf("%s", cheeseboard(4, 8));
                 setColor(poisColor);
                 printf(" #%d\n",i);
-                setColor(otherBoardTextColor);
-                setColor(poisColor);
                 setColor(riverColor);
                 printf("         漢界         ");
+                setColor(textColor);
+                printf("                                         上一步:");
+                
             }
 
         }
         if (i == 5) {
             setColor(riverColor);
             printf("                                       楚河          ");
+            setColor(textColor);
+            if (lastMove1[0] != 0) {
+                //這裡
+                int row2 = lastMove2[0] - 65;
+                int col2 = lastMove2[1] - 48;
+                int first = cheese[col2][row2];
+                first < 8 ? setColor(onePlayerColor) : setColor(twoPlayerColor);
+                printf("          %s", lastMoveName1);
+                setColor(textColor);
+                printf("(%s) 移動到 (%s)", lastMove1 , lastMove2);
+                if (lastMoveName2[0] != 0) {
+                    int row2 = commnd2[0] - 65;
+                    int col2 = commnd2[1] - 48;
+                    int second = cheese[col2][row2];
+                    printf(" 吃掉了");
+                    lastMoveName2[9] < 8 ? setColor(onePlayerColor) : setColor(twoPlayerColor);
+                    printf("%s",lastMoveName2);
+                    setColor(textColor);
+                }
+            }
+            
         }
         for (int k = 0; k < 9; k++) {
             if (i == 4 || i == 5) {
@@ -213,6 +244,7 @@ void printBoard() {
         if (i == 6) {
             setColor(textColor);
             printf("         1P:");
+            setColor(onePlayerColor);
             for (int n = 1; n < 8; n++) {
                 printf("%s, ", cheesename(n));
             }
@@ -222,6 +254,7 @@ void printBoard() {
         if (i == 7) {
             setColor(textColor);
             printf("         2P:");
+            setColor(twoPlayerColor);
             for (int n = 8; n < 15; n++) {
                 printf("%s, ", cheesename(n));
             }
@@ -336,9 +369,7 @@ int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {
 int inputandselect() {
     int first, second;
     int row1, col1;
-    int eat1num = 0, eat2num = 0;
     printf("你要移動的旗子:");
-    
     scanf("%s", commnd1);
     commnd1[0] = toupper(commnd1[0]);
     if (commnd1[0] >= 'A' && commnd1[0] <= 'I' && commnd1[1] >= '0' && commnd1[1] <= '9' && commnd1[2] <= 0) {//第一指令
@@ -358,7 +389,21 @@ int inputandselect() {
     }
 
     int row2, col2;
-    printf("你要移動 '%s' 到哪裡:", cheeseboard(col1, row1));
+    printf("你要移動");
+    if (cheese[col1][row1] > 0) {
+        if (cheese[col1][row1] < 8) {
+            setColor(onePlayerColor);
+        }
+        if (cheese[col1][row1] > 7) {
+            setColor(twoPlayerColor);
+        }
+    } else {
+        setColor(textColor);
+    }
+    printf(" '%s' ", cheeseboard(col1, row1));
+    setColor(textColor);
+    printf("到哪裡:");
+
     scanf("%s", commnd2);
     commnd2[0] = toupper(commnd2[0]);
     if (commnd2[0] >= 'A' && commnd2[0] <= 'I' && commnd2[1] >= '0' && commnd2[1] <= '9' && commnd2[2] <= 0) {//第二指令
@@ -366,7 +411,18 @@ int inputandselect() {
         col2 = commnd2[1] - 48;
         second = cheese[col2][row2];
 
+        lastMove1[0] = 0;
+        lastMoveName2[0] = 0;
         if (ruleTotal(first, second, col1, row1, col2, row2) == 0) {
+            strcpy(lastMove1, commnd1);
+            strcpy(lastMove2, commnd2);
+            strcpy(lastMoveName1, cheesename(first));
+            if (second != 0) {
+                strcpy(lastMoveName2, cheesename(second));
+                lastMoveName2[9] = second;
+            } else {
+                lastMoveName2[0] = 0;
+            }
             player = player == 1 ? 2 : 1;
             round++;
             if (second < 8 && second != 0) { // 1p been eat
@@ -395,7 +451,9 @@ int inputandselect() {
 }
 
 void winfunc() {
+    int winner = player == 1 ? 2 : 1;
     clr();
+    printf("%dP\n贏\n了", winner);
 }
 
 int main() {
@@ -407,9 +465,7 @@ int main() {
         clr();
     }
     if (win) {
-        clr();
         winfunc();
     }
-    system("pause");
     return 0;
 }

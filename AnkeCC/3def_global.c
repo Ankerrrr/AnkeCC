@@ -14,10 +14,15 @@ int cheesepreset[10][9] = {
 int cheese[10][9];
 int eated1[20] = { 0 };
 int eated2[20] = { 0 };
+int eat1num = 0, eat2num = 0;
 int player = 1;
 int round = 1;
 short win = 0;
 
-char commnd1[10];
-char commnd2[10];
 char statusarr[30];
+char lastMove1[10];
+char lastMove2[10];
+char commnd1[20] = { 0 };
+char commnd2[20] = { 0 };
+char lastMoveName1[10] = { 0 };
+char lastMoveName2[10] = { 0 };
