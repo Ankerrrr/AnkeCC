@@ -100,7 +100,7 @@
   <li>rulepow<br>負責炮的邏輯，只以橫豎走，且可吃掉隔一個棋的敵方棋</li>
 </ul>
 <h2>程式流程圖</h2>
-<img width=600rem src="https://github.com/Ankerrrr/AnkeCC/blob/master/AnkeCC/Untitled%20Diagram.svg">
+<img width=600rem src="https://raw.githubusercontent.com/Ankerrrr/AnkeCC/2a3f2a58251532f9b84c70daa38d8a316800b8ac/AnkeCC/readmeMedia/Untitled%20Diagram.svg">
 <h2>使用說明</h2>
 <p>▼ 輸入要移動的座標 及 移動到哪裡 即可搬移棋子</p>
 <img src="https://github.com/Ankerrrr/AnkeCC/assets/80147818/3c1af165-1d7b-4198-8117-5845414d0162">
