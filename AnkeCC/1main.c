@@ -97,7 +97,7 @@ void status(int n) {
         strcpy(statusarr, "你的棋子移動的不合規則");
         break;
     case 5:
-        strcpy(statusarr, "阿姆阿姆 xP");
+        strcpy(statusarr, "阿姆阿姆 Xp");
         break;
     case 6:
         strcpy(statusarr, "住手!!你在吃自己");
@@ -136,8 +136,11 @@ void printBoard() {
     setColor(highlightColor);
     printf("%dP \n", player);
     setColor(textColor);
-    printf("狀態 %s", statusarr);
-    printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("狀態 %s\n", statusarr);
+    setColor(poisColor);
+    //printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("\n#A    #B    #C    #D    #E    #F    #G    #H    #I \n");
+    setColor(textColor);
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
             if (i != 5) {
@@ -170,7 +173,9 @@ void printBoard() {
                     printf("            ");
                     setColor(onePlayerColor);
                     for (int n = 0; n < 18; n++) {
-                        printf("%s ", cheesename(eated1[n]));
+                        if (eated1[n] != 0) {
+                            printf("%s ", cheesename(eated1[n]));
+                        }
                     }
                     setColor(otherBoardTextColor);
                 }
@@ -283,11 +288,13 @@ void printBoard() {
     printf("            ");
     setColor(twoPlayerColor);
     for (int n = 0; n < 17; n++) {
-        printf("%s ", cheesename(eated2[n]));
+        if (eated2[n] != 0) {
+            printf("%s ", cheesename(eated2[n]));
+        }
     }
     setColor(poisColor);
     printf("\n#A    #B    #C    #D    #E    #F    #G    #H    #I \n");
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    //printf("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
     setColor(textColor);
     printf("\n");
     
@@ -452,17 +459,18 @@ int inputandselect() {
 
 void winfunc() {
     int winner = player == 1 ? 2 : 1;
-    clr();
-    printf("%dP\n贏\n了", winner);
+    //clr();
+    printf("\n%dP贏了", winner);
 }
 
 int main() {
     init();
     status(999);
     while (!win) {
+        clr();
         printBoard();
         inputandselect();
-        clr();
+        
     }
     if (win) {
         winfunc();

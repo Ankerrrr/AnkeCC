@@ -143,9 +143,11 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
             status(4);//¤£¦X²z
             return 1;
         }
-    } else if (second == 5 || second == 12 && (row1 == row2 || col1 == col2)) {//¤ý¨£¤ý//¦Y±¼±N
+    } else if ((second == 5 || second == 12) && row1 == row2) {//¤ý¨£¤ý//¦Y±¼±N
+        printf("123");
         int obstacle = 0;
         if (row1 == row2) { // ¦b¦P¤@¦æ¤W
+            printf("456");
             int min_col = (col1 < col2) ? col1 : col2;
             int max_col = (col1 > col2) ? col1 : col2;
 
@@ -161,12 +163,15 @@ int ruleking(int first, int second, int col1, int row1, int col2, int row2) { //
             cheese[col2][row2] = first;//·h²¾
             cheese[col1][row1] = 0;
             status(9); // ¤ý¨£¤ý¡I
+            printf("789");
         } else {
             status(4);//¤£¦X²z
+            printf("afs");
             return 1;
         }
     }else {
         status(4);//¤£¦X²z
+        printf("bbb");
         return 1;
     }
     return 0;
@@ -214,12 +219,12 @@ int rulepow(int first, int second, int col1, int row1, int col2, int row2) { //¬
                 }
             }
             int player = first == 7 ? 1 : 2;
-            if (obstacle == 0 && second == 0) {
+            if (obstacle == 0 && second == 0) { //¤¤¶¡¨S¦³ªF¦è ¥B ¨ìªº¦a¤è¬OªÅªº
                 cheese[col2][row2] = first;
                 cheese[col1][row1] = 0;
+                return 0;
             }
-            if (obstacle == 1 && (player == 1 && second > 7) || (player == 2 && second < 8) && second != 0) {
-                printf("BBB");
+            if (obstacle == 1 && ((player == 1 && second > 7) || (player == 2 && second < 8)) && second != 0) { //¤¤¶¡¦³¤@­ÓªF¦è ¥B ¦Yªº¦X²z
                 cheese[col2][row2] = first;
                 cheese[col1][row1] = 0;
                 if (second != 0) {
@@ -240,16 +245,17 @@ int rulepow(int first, int second, int col1, int row1, int col2, int row2) { //¬
                 }
             }
             int player = first == 7 ? 1 : 2;
-            if (obstacle == 0 && second == 0) {
+            if (obstacle == 0 && second == 0) {//¤¤¶¡¨S¦³ªF¦è ¥B ¨ìªº¦a¤è¬OªÅªº
                 cheese[col2][row2] = first;
                 cheese[col1][row1] = 0;
+                return 0;
             }
-            if (obstacle == 1 && ((player == 1 && second > 7) || (player == 2 && second < 8)) && second != 0) {
-                printf("AAA");
+            if (obstacle == 1 && ((player == 1 && second > 7) || (player == 2 && second < 8)) && second != 0) {//¤¤¶¡¦³¤@­ÓªF¦è ¥B ¦Yªº¦X²z
                 cheese[col2][row2] = first;
                 cheese[col1][row1] = 0;
                 if (second != 0) {
                     status(5);//¦Y¨ìªF¦è¤F
+                    return 0;
                 }
             } else {
                 status(4);//²¾°Ê¤£¦X²z
