@@ -92,7 +92,7 @@
 <p>cheeseRule.c</p>
 <ul>
   <li>rulecar<br>負責車的邏輯，只能直走、不能飛過東西</li> 
-  <li>rulehorse<br>負責法的邏輯，只能日字行走，不得拐馬腳</li>
+  <li>rulehorse<br>負責馬的邏輯，只能日字行走，不得拐馬腳</li>
   <li>rulexian<br>負責相的邏輯，只能田字行走，不得柺相腳及過河</li>
   <li>rulefour<br>負責士的邏輯，只能斜著走，且必須位於九宮格內</li>
   <li>ruleking<br>負責王的邏輯，只能在九宮格內，且王見王可飛過去吃</li>
