@@ -1,6 +1,28 @@
-#include "head.h"
+ï»¿#include "head.h"
 #include "global.h"
 
+
+FILE* pFile;
+
+char* getTime() {
+    static char timeString[100];
+
+    struct tm* localTime;
+    time_t currentTime;
+    currentTime = time(NULL);
+    localTime = localtime(&currentTime);
+
+    strftime(timeString, sizeof(timeString), "%c", localTime);
+
+    return timeString;
+}
+
+void ctrlc_handler(int signal) {
+    printf("\nä¸­æ–·éŠæˆ²QQ\næ°æ°\n");
+    fprintf(pFile, "%s control-céŠæˆ²ä¸­æ–·\n", getTime());
+    fclose(pFile);
+    exit(EXIT_SUCCESS);
+}
 
 int clr() {
     printf("\x1b[H\x1b[J"); //clear display
@@ -8,6 +30,10 @@ int clr() {
 }
 
 int init() {
+    if (signal(SIGINT, ctrlc_handler) == SIG_ERR) {
+        perror("ç„¡æ³•æŠ“åˆ°sigintè¨Šè™Ÿ");
+        return EXIT_FAILURE;
+    }
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 9; j++) {
             cheese[i][j] = cheesepreset[i][j];
@@ -28,50 +54,50 @@ char* cheesename(int nub) {
         break;
         //1p
     case 1:
-        strcpy(name, "¨®");
+        strcpy(name, "è»Š");
         break;
     case 2:
-        strcpy(name, "°¨");
+        strcpy(name, "é¦¬");
         break;
     case 3:
-        strcpy(name, "¶H");
+        strcpy(name, "è±¡");
         break;
     case 4:
-        strcpy(name, "¤h");
+        strcpy(name, "å£«");
         break;
     case 5:
-        strcpy(name, "±N");
+        strcpy(name, "å°‡");
         break;
     case 6:
-        strcpy(name, "¨ò");
+        strcpy(name, "å’");
         break;
     case 7:
-        strcpy(name, "Àj");
+        strcpy(name, "é®‘");
         break;
         //2p
     case 8:
-        strcpy(name, "©ë");
+        strcpy(name, "æ‹˜");
         break;
     case 9:
-        strcpy(name, "ØX");
+        strcpy(name, "å‚Œ");
         break;
     case 10:
-        strcpy(name, "¬Û");
+        strcpy(name, "ç›¸");
         break;
     case 11:
-        strcpy(name, "¥K");
+        strcpy(name, "ä»•");
         break;
     case 12:
-        strcpy(name, "«Ó");
+        strcpy(name, "å¸¥");
         break;
     case 13:
-        strcpy(name, "§L");
+        strcpy(name, "å…µ");
         break;
     case 14:
-        strcpy(name, "¬¶");
+        strcpy(name, "ç‚®");
         break;//1p
     default:
-        strcpy(name, "µL");
+        strcpy(name, "ç„¡");
         break;
     }
     return name;
@@ -85,42 +111,42 @@ void status(int n) {
     strcpy(statusarr, " ");
     switch (n) {
     case 1:
-        strcpy(statusarr, "½Ğ¿é¤J§A­n²¾°Êªº®y¼Ğ");
+        strcpy(statusarr, "è«‹è¼¸å…¥ä½ è¦ç§»å‹•çš„åº§æ¨™");
         break;
     case 2:
-        strcpy(statusarr, "¿é¤Jªº¤º®e¤£²Å¦X®æ¦¡¡A½ĞÀË¬d«á¦A¦¸¿é¤J");
+        strcpy(statusarr, "è¼¸å…¥çš„å…§å®¹ä¸ç¬¦åˆæ ¼å¼ï¼Œè«‹æª¢æŸ¥å¾Œå†æ¬¡è¼¸å…¥");
         break;
     case 3:
-        strcpy(statusarr, "§A©Ò¿é¤Jªº®y¼Ğ¤£¦s¦b");
+        strcpy(statusarr, "ä½ æ‰€è¼¸å…¥çš„åº§æ¨™ä¸å­˜åœ¨");
         break;
     case 4:
-        strcpy(statusarr, "§Aªº´Ñ¤l²¾°Êªº¤£¦X³W«h");
+        strcpy(statusarr, "ä½ çš„æ£‹å­ç§»å‹•çš„ä¸åˆè¦å‰‡");
         break;
     case 5:
-        strcpy(statusarr, "ªü©iªü©i Xp");
+        strcpy(statusarr, "é˜¿å§†é˜¿å§† Xp");
         break;
     case 6:
-        strcpy(statusarr, "¦í¤â!!§A¦b¦Y¦Û¤v");
+        strcpy(statusarr, "ä½æ‰‹!!ä½ åœ¨åƒè‡ªå·±");
         break;
     case 7:
         if (player == 1) {
-            strcpy(statusarr, "²{¦b½ü¨ì1P §A¥¿¦b°Ê¤£¬O§Aªº´Ñ¤l");
+            strcpy(statusarr, "ç¾åœ¨è¼ªåˆ°1P ä½ æ­£åœ¨å‹•ä¸æ˜¯ä½ çš„æ£‹å­");
         }
         else {
-            strcpy(statusarr, "²{¦b½ü¨ì2P §A¥¿¦b°Ê¤£¬O§Aªº´Ñ¤l");
+            strcpy(statusarr, "ç¾åœ¨è¼ªåˆ°2P ä½ æ­£åœ¨å‹•ä¸æ˜¯ä½ çš„æ£‹å­");
         }
         break;
     case 8:
-        strcpy(statusarr, "§A¤£¯à²¾°ÊªÅ®ğ");
+        strcpy(statusarr, "ä½ ä¸èƒ½ç§»å‹•ç©ºæ°£");
         break;
     case 9:
-        strcpy(statusarr, "¤ı¨£¤ı!");
+        strcpy(statusarr, "ç‹è¦‹ç‹!");
         break;
     case 10:
-        strcpy(statusarr, "¦Û¤v²¾¨ì¦Û¤v?³o¼Ë¦³¬Æ»ò·N¸q");
+        strcpy(statusarr, "è‡ªå·±ç§»åˆ°è‡ªå·±?é€™æ¨£æœ‰ç”šéº¼æ„ç¾©");
         break;
     case 100:
-        strcpy(statusarr, "¨t²Î¬G»Ù¡A½ĞÁpÃ´ANKE");
+        strcpy(statusarr, "ç³»çµ±æ•…éšœï¼Œè«‹è¯ç¹«ANKE");
         break;
     default:
         strcpy(statusarr, ":)");
@@ -128,15 +154,15 @@ void status(int n) {
 }
 
 void printBoard() {
-    printf("ª¬ºA:", round, player);
+    printf("ç‹€æ…‹:", round, player);
     setColor(highlightColor);
-    printf("²Ä%d¨B", round);
+    printf("ç¬¬%dæ­¥", round);
     setColor(textColor);
-    printf(",½ü¨ì ");
+    printf(",è¼ªåˆ° ");
     setColor(highlightColor);
     printf("%dP \n", player);
     setColor(textColor);
-    printf("ª¬ºA %s\n", statusarr);
+    printf("ç‹€æ…‹ %s\n", statusarr);
     setColor(poisColor);
     //printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf("\n#A    #B    #C    #D    #E    #F    #G    #H    #I \n");
@@ -189,13 +215,13 @@ void printBoard() {
                 printf(" #%d", i);
                 setColor(textColor);
                 if (i == 0) { 
-                    printf("         ¹CÀ¸ª±ªk:");
+                    printf("         éŠæˆ²ç©æ³•:");
                 }
                 if (i == 1) {
-                    printf("          ¦Y±¼¹ï¤èªº±N");
+                    printf("          åƒæ‰å°æ–¹çš„å°‡");
                 }
                 if (i == 2) {
-                    printf("          ¤W­±¬°1P,¤U­±¬°2P,¿é¤J®y¼Ğ¨Ó²¾°ÊºX¤l");
+                    printf("          ä¸Šé¢ç‚º1P,ä¸‹é¢ç‚º2P,è¼¸å…¥åº§æ¨™ä¾†ç§»å‹•æ——å­");
                 }
                 setColor(otherBoardTextColor);
                 printf("\n");
@@ -206,31 +232,31 @@ void printBoard() {
                 setColor(poisColor);
                 printf(" #%d\n",i);
                 setColor(riverColor);
-                printf("         º~¬É         ");
+                printf("         æ¼¢ç•Œ         ");
                 setColor(textColor);
-                printf("                                         ¤W¤@¨B:");
+                printf("                                         ä¸Šä¸€æ­¥:");
                 
             }
 
         }
         if (i == 5) {
             setColor(riverColor);
-            printf("                                       ·¡ªe          ");
+            printf("                                       æ¥šæ²³          ");
             setColor(textColor);
             if (lastMove1[0] != 0) {
-                //³o¸Ì
+                //é€™è£¡
                 int row2 = lastMove2[0] - 65;
                 int col2 = lastMove2[1] - 48;
                 int first = cheese[col2][row2];
                 first < 8 ? setColor(onePlayerColor) : setColor(twoPlayerColor);
                 printf("          %s", lastMoveName1);
                 setColor(textColor);
-                printf("(%s) ²¾°Ê¨ì (%s)", lastMove1 , lastMove2);
+                printf("(%s) ç§»å‹•åˆ° (%s)", lastMove1 , lastMove2);
                 if (lastMoveName2[0] != 0) {
                     int row2 = commnd2[0] - 65;
                     int col2 = commnd2[1] - 48;
                     int second = cheese[col2][row2];
-                    printf(" ¦Y±¼¤F");
+                    printf(" åƒæ‰äº†");
                     lastMoveName2[9] < 8 ? setColor(onePlayerColor) : setColor(twoPlayerColor);
                     printf("%s",lastMoveName2);
                     setColor(textColor);
@@ -267,10 +293,10 @@ void printBoard() {
         }
         setColor(textColor);
         if(i == 8) {
-            printf("         1P¤w³Q¦Y±¼ªº´Ñ¤l:");
+            printf("         1På·²è¢«åƒæ‰çš„æ£‹å­:");
         }
         if (i == 9) {
-            printf("         2P¤w³Q¦Y±¼ªº´Ñ¤l:");
+            printf("         2På·²è¢«åƒæ‰çš„æ£‹å­:");
         }
         setColor(otherBoardTextColor);
         printf("\n");
@@ -301,8 +327,8 @@ void printBoard() {
 }
 
 int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {  
-    if (((first < 8 && second < 8) || (first > 7 && second > 7)) && (second != 0 && first != 0)) { //¦Y¦Û¤v
-        if ((col1 == col2) && (row1 == row2)) {//¦Û¤v²¾¨ì¦Û¤v
+    if (((first < 8 && second < 8) || (first > 7 && second > 7)) && (second != 0 && first != 0)) { //åƒè‡ªå·±
+        if ((col1 == col2) && (row1 == row2)) {//è‡ªå·±ç§»åˆ°è‡ªå·±
             status(10);
             return(1);
         }
@@ -310,13 +336,13 @@ int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {
         return(1);
     }
     
-    //¶Ã°Ê§O¤HºX¤l
+    //äº‚å‹•åˆ¥äººæ——å­
     if (player == 1 && first > 7 || player == 2 && first < 8) {
         status(7);
         return(1);
    }
 
-    switch (first) {//¤À°t¦U¦ÛºX¤lªº¨ç¼Æ
+    switch (first) {//åˆ†é…å„è‡ªæ——å­çš„å‡½æ•¸
     case 1:
     case 8:
         if (rulecar(first, second, col1, row1, col2, row2) != 0) { 
@@ -376,10 +402,10 @@ int ruleTotal(int first,int second,int col1,int row1,int col2,int row2) {
 int inputandselect() {
     int first, second;
     int row1, col1;
-    printf("§A­n²¾°ÊªººX¤l:");
+    printf("ä½ è¦ç§»å‹•çš„æ——å­:");
     scanf("%s", commnd1);
     commnd1[0] = toupper(commnd1[0]);
-    if (commnd1[0] >= 'A' && commnd1[0] <= 'I' && commnd1[1] >= '0' && commnd1[1] <= '9' && commnd1[2] <= 0) {//²Ä¤@«ü¥O
+    if (commnd1[0] >= 'A' && commnd1[0] <= 'I' && commnd1[1] >= '0' && commnd1[1] <= '9' && commnd1[2] <= 0) {//ç¬¬ä¸€æŒ‡ä»¤
         row1 = commnd1[0] - 65;
         col1 = commnd1[1] - 48;
 
@@ -391,12 +417,12 @@ int inputandselect() {
     }
     else {
         status(3);
-        printf("¿ù»~");
+        printf("éŒ¯èª¤");
         return 1;
     }
 
     int row2, col2;
-    printf("§A­n²¾°Ê");
+    printf("ä½ è¦ç§»å‹•");
     if (cheese[col1][row1] > 0) {
         if (cheese[col1][row1] < 8) {
             setColor(onePlayerColor);
@@ -409,11 +435,11 @@ int inputandselect() {
     }
     printf(" '%s' ", cheeseboard(col1, row1));
     setColor(textColor);
-    printf("¨ì­ş¸Ì:");
+    printf("åˆ°å“ªè£¡:");
 
     scanf("%s", commnd2);
     commnd2[0] = toupper(commnd2[0]);
-    if (commnd2[0] >= 'A' && commnd2[0] <= 'I' && commnd2[1] >= '0' && commnd2[1] <= '9' && commnd2[2] <= 0) {//²Ä¤G«ü¥O
+    if (commnd2[0] >= 'A' && commnd2[0] <= 'I' && commnd2[1] >= '0' && commnd2[1] <= '9' && commnd2[2] <= 0) {//ç¬¬äºŒæŒ‡ä»¤
         row2 = commnd2[0] - 65;
         col2 = commnd2[1] - 48;
         second = cheese[col2][row2];
@@ -452,7 +478,7 @@ int inputandselect() {
     }
     else {
         status(3);
-        printf("¿ù»~");
+        printf("éŒ¯èª¤");
         return 1;
     }
 }
@@ -460,21 +486,33 @@ int inputandselect() {
 void winfunc() {
     int winner = player == 1 ? 2 : 1;
     //clr();
-    printf("\n%dPÄ¹¤F", winner);
+    printf("\n%dPè´äº†\næ­å–œ!!!\n", winner);
+    fprintf(pFile, "%s %dPè´äº†\n", getTime(), winner);
+}
+
+void fileInit() {
+    pFile = fopen("..\\playCheeseLog.txt", "a");
+    if (pFile == NULL) {
+        printf("cannot not make File");
+        return;
+    }
+    fprintf(pFile, "%s éŠæˆ²é–‹å§‹\n",getTime());
 }
 
 int main() {
     init();
+    fileInit();
     status(999);
     while (!win) {
         clr();
         printBoard();
         inputandselect();
-        
     }
     if (win) {
         winfunc();
     }
+    fprintf(pFile, "%s éŠæˆ²æ­£å¸¸çµæŸ\n", getTime());
+    fclose(pFile);
     system("pause");
     return 0;
 }

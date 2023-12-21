@@ -1,0 +1,14 @@
+Thu Dec 21 10:59:24 2023gamestart
+遊戲中斷
+Thu Dec 21 10:59:26 2023gamestart
+遊戲中斷
+Thu Dec 21 10:59:44 2023gamestart
+control-c遊戲中斷
+Thu Dec 21 10:59:48 2023gamestart
+control-c遊戲中斷
+Thu Dec 21 11:03:20 2023 遊戲開始
+Thu Dec 21 11:03:57 2023 2P贏了
+Thu Dec 21 11:03:57 2023 遊戲正常結束
+Thu Dec 21 11:05:23 2023 遊戲開始
+
+Thu Dec 21 11:05:24 2023 control-c遊戲中斷

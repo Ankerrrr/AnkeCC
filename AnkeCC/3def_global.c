@@ -26,3 +26,4 @@ char commnd1[20] = { 0 };
 char commnd2[20] = { 0 };
 char lastMoveName1[10] = { 0 };
 char lastMoveName2[10] = { 0 };
+

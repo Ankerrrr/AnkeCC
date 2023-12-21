@@ -5,4 +5,6 @@
 #include <ctype.h>
 #include <windows.h>
 #include <Mmsystem.h>
+#include <time.h>
+#include <signal.h>
 #pragma comment(lib,"winmm.lib")
